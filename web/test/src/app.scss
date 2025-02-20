@@ -1,0 +1,86 @@
+@use 'sass:map';
+
+@use '@picocss/pico/scss/colors' as *;
+
+@use '@picocss/pico/scss/pico' as * with (
+	$theme-color: 'indigo',
+	$semantic-root-element: '#root',
+	$enable-semantic-container: true,
+	$enable-classes: false
+);
+
+#root {
+	> main {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		min-height: 100vh;
+		max-width: map.get(map.get($breakpoints, 'sm'), 'viewport');
+	}
+}
+
+h1 {
+	font-size: max(min(5vw, 2rem), 1.5rem);
+}
+
+p {
+	font-size: 1.5rem;
+}
+
+.logo {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	gap: 0.5rem;
+	padding: 0.3rem;
+	align-items: center;
+	font-size: max(min(10vw, 3rem), 1rem);
+	font-family: Audiowide;
+	text-decoration: none;
+	color: #ffffff;
+}
+
+.banner {
+	position: absolute;
+	width: 100%;
+	opacity: 0.9;
+	display: flex;
+	justify-content: space-between;
+
+	background-color: $red-500;
+	> p {
+		color: white;
+		font-size: 1rem;
+	}
+	> button {
+		background-color: $red-600;
+		border-color: $red-700;
+	}
+}
+
+#otp-form {
+	width: 100%;
+	display: flex;
+	gap: 20px;
+	align-items: center;
+	justify-content: center;
+}
+#otp-form input {
+	border: none;
+	background-color: #121517;
+	color: white;
+	font-size: 32px;
+	text-align: center;
+	padding: 10px;
+	width: 100%;
+	max-width: 70px;
+	height: 70px;
+	border-radius: 4px;
+	outline: 2px solid rgb(66, 66, 66);
+}
+#otp-form input:focus-visible {
+	outline: 2px solid royalblue;
+}
+#otp-form input.filled {
+	outline: 2px solid rgb(7, 192, 99);
+}
